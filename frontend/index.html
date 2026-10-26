@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Energy Management</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <h2>⚡ SmartEnergy</h2>
+    <p class="nav-heading">MAIN MENU</p>
+    <a href="#dashboard">▦ Dashboard</a>
+    <a href="#appliances">▤ Appliances</a>
+    <a href="#analytics">▥ Energy Analytics</a>
+    <a href="#alerts">♧ Energy Alerts</a>
+    <div class="side-bottom">● Software Demo Mode</div>
+  </aside>
+
+  <main class="main" id="dashboard">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">ENERGY INTELLIGENCE PLATFORM</p>
+        <h1>Smart Energy Dashboard</h1>
+        <p class="muted">Monitor and understand your energy consumption.</p>
+      </div>
+      <button id="refreshBtn">↻ Refresh Data</button>
+    </header>
+
+    <div class="notice">
+      <strong>ⓘ Simulation mode</strong>
+      <p>Sample appliance readings are provided by your Spring Boot backend.</p>
+    </div>
+
+    <section class="metrics">
+      <article class="metric">
+        <div class="metric-icon">⚡</div>
+        <p>Total Power</p>
+        <h2><span id="totalPower">--</span> <small>W</small></h2>
+        <span class="muted">Combined appliance load</span>
+      </article>
+      <article class="metric">
+        <div class="metric-icon">◷</div>
+        <p>Energy Consumed</p>
+        <h2><span id="totalEnergy">--</span> <small>kWh</small></h2>
+        <span class="muted">Sample energy values</span>
+      </article>
+      <article class="metric">
+        <div class="metric-icon">₹</div>
+        <p>Estimated Cost</p>
+        <h2>₹<span id="totalCost">--</span></h2>
+        <span class="muted">At the configured tariff</span>
+      </article>
+      <article class="metric">
+        <div class="metric-icon">⌁</div>
+        <p>Supply Voltage</p>
+        <h2><span id="voltage">--</span> <small>V</small></h2>
+        <span class="muted">Illustrative value</span>
+      </article>
+    </section>
+
+    <section class="panel occupancy">
+      <div>
+        <h2>Occupancy Detection</h2>
+        <p class="muted">Simulate whether the room is occupied.</p>
+      </div>
+      <div class="controls">
+        <span id="occupancyBadge" class="badge">OCCUPIED</span>
+        <button class="secondary" id="occupiedBtn">Room Occupied</button>
+        <button class="warning" id="emptyBtn">Room Empty</button>
+      </div>
+    </section>
+
+    <section class="content-grid">
+      <article class="panel" id="appliances">
+        <div class="panel-heading">
+          <div>
+            <h2>Appliance Monitoring</h2>
+            <p class="muted">Individual power and energy readings</p>
+          </div>
+          <span class="live-label">● CONNECTED</span>
+        </div>
+        <div id="applianceList" class="appliance-list">
+          Connecting to Spring Boot...
+        </div>
+      </article>
+
+      <article class="panel" id="analytics">
+        <h2>Energy Analytics</h2>
+        <p class="muted">Illustrative daily forecast</p>
+        <div class="chart-wrap">
+          <canvas id="energyChart"></canvas>
+        </div>
+        <div class="bill">
+          <span>Estimated monthly bill</span>
+          <strong id="monthlyCost">₹--</strong>
+        </div>
+        <p class="footnote">Formula-based estimate, not a trained AI prediction.</p>
+      </article>
+    </section>
+
+    <section class="content-grid bottom-grid">
+      <article class="panel" id="alerts">
+        <h2>Energy Wastage Alerts</h2>
+        <p class="muted">Appliances ON while the room is empty</p>
+        <div id="alertList" class="alert-list">
+          No alerts yet.
+        </div>
+      </article>
+
+      <section class="panel recommendations-panel">
+         <div class="panel-header">
+           <h2>Energy-Saving Recommendations</h2>
+            <span class="recommendation-tag">SMART TIPS</span>
+         </div>
+
+         <div id="recommendationList">
+           Loading recommendations...
+         </div>
+      </section>
+
+      <article class="panel">
+        <h2>Energy-Saving Recommendations</h2>
+        <div class="recommendation">
+          <span>✦</span>
+          <div>
+            <strong>Monitor high-power appliances</strong>
+            <p>Review air-conditioner consumption and usage hours.</p>
+          </div>
+        </div>
+        <div class="recommendation">
+          <span>✦</span>
+          <div>
+            <strong>Reduce unnecessary usage</strong>
+            <p>Switch off appliances when they are not required.</p>
+          </div>
+        </div>
+        <div class="recommendation">
+          <span>✦</span>
+          <div>
+            <strong>Use occupancy information</strong>
+            <p>Check appliances operating in an empty room.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+    
+
+    
+
+    <footer>
+      AI-Enabled Smart Energy Management System
+      <p id="lastUpdated">Waiting for backend connection...</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
